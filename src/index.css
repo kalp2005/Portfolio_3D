@@ -2,12 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #0f172a;
-  color: white;
+h1, h2, h3 {
+  letter-spacing: -0.02em;
 }
 
+/* Base theme */
+body {
+  background: radial-gradient(circle at top, #0b1220, #020617);
+  color: #e2e8f0;
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* Light mode */
 .light body {
-  background-color: #f8fafc;
-  color: black;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* Smooth feel */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Glow utility */
+.glow-purple {
+  box-shadow: 0 0 60px rgba(124, 58, 237, 0.5);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.5);
 }

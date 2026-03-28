@@ -1,12 +1,14 @@
 import ScrollScene from "./components/three/ScrollScene";
 import ThemeToggle from "./components/ui/ThemeToggle";
+import Cursor from "./components/ui/Cursor";
 
 function App() {
   return (
-    <div className="h-[300vh] relative">
+    <>
+      <Cursor />
       <ThemeToggle />
       <ScrollScene />
-    </div>
+    </>
   );
 }
 
