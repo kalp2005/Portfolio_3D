@@ -6,30 +6,42 @@ h1, h2, h3 {
   letter-spacing: -0.02em;
 }
 
-/* Base theme */
+/* Base theme (Dark) */
 body {
   background: radial-gradient(circle at top, #0b1220, #020617);
   color: #e2e8f0;
   font-family: system-ui, sans-serif;
   overflow: hidden;
+  transition: background 0.8s ease-in-out, color 0.8s ease-in-out;
 }
 
 /* Light mode */
 .light body {
-  background: #f8fafc;
+  background: radial-gradient(circle at top, #f8fafc, #e2e8f0);
   color: #0f172a;
 }
 
-/* Smooth feel */
-* {
-  transition: all 0.3s ease;
-}
-
-/* Glow utility */
+/* Glow utility - only applied in dark mode via Tailwind's dark variant */
 .glow-purple {
   box-shadow: 0 0 60px rgba(124, 58, 237, 0.5);
 }
 
 .glow-cyan {
   box-shadow: 0 0 40px rgba(6, 182, 212, 0.5);
+}
+
+/* Custom Cursor adjustments */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  background-color: white; /* Difference blend mode makes this invert automatically! */
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
 }

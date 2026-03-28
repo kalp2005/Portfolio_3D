@@ -10,19 +10,21 @@ export default function AboutUI() {
         transition={{ duration: 0.8 }}
         className="
           backdrop-blur-xl 
-          bg-white/5 
-          border border-white/10 
+          bg-white/40 dark:bg-white/5 
+          border border-slate-200 dark:border-white/10 
           rounded-2xl 
           p-10 
           max-w-2xl
-          glow-purple
+          shadow-xl dark:shadow-none
+          dark:glow-purple
+          transition-all duration-500
         "
       >
-        <h2 className="text-2xl font-semibold mb-4 text-white">
+        <h2 className="text-2xl font-semibold mb-4 text-slate-900 dark:text-white transition-colors duration-500">
           About Me
         </h2>
 
-        <p className="text-gray-400 leading-relaxed">
+        <p className="text-slate-700 dark:text-gray-400 leading-relaxed transition-colors duration-500">
           I’m a developer focused on building modern, interactive and scalable
           applications. I enjoy blending clean design with powerful engineering
           to create experiences that feel smooth, fast and intuitive.
