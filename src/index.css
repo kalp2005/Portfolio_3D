@@ -2,46 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, h3 {
-  letter-spacing: -0.02em;
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    color: transparent;
+  }
+  .dark .text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  }
+  .light .text-outline {
+    -webkit-text-stroke: 1px rgba(15, 23, 42, 0.3);
+  }
 }
 
-/* Base theme (Dark) */
 body {
-  background: radial-gradient(circle at top, #0b1220, #020617);
+  /* We add a subtle SVG noise overlay to the gradient */
+  background-color: #020617;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(124, 58, 237, 0.15), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.15), transparent 25%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   color: #e2e8f0;
-  font-family: system-ui, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   overflow: hidden;
-  transition: background 0.8s ease-in-out, color 0.8s ease-in-out;
+  transition: background-color 0.8s ease;
 }
 
-/* Light mode */
 .light body {
-  background: radial-gradient(circle at top, #f8fafc, #e2e8f0);
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.1), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.1), transparent 25%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
   color: #0f172a;
 }
 
-/* Glow utility - only applied in dark mode via Tailwind's dark variant */
-.glow-purple {
-  box-shadow: 0 0 60px rgba(124, 58, 237, 0.5);
+/* Hide default scrollbar for clean look */
+::-webkit-scrollbar {
+  display: none;
 }
-
-.glow-cyan {
-  box-shadow: 0 0 40px rgba(6, 182, 212, 0.5);
-}
-
-/* Custom Cursor adjustments */
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  background-color: white; /* Difference blend mode makes this invert automatically! */
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out;
+/* Hide default cursor to use our custom Framer Motion cursor */
+* {
+  cursor: none !important;
 }
